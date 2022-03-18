@@ -6,8 +6,8 @@ import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.List;
-//import org.apache.logging.log4j.LogManager;
-//import org.apache.logging.log4j.Logger;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 import exception.SystemException;
 import pojo.EmployeePojo;
 import pojo.ManagerPojo;
@@ -16,12 +16,12 @@ import pojo.MergedReimbursmentPojo;
 
 public class ManagerJdbcDaoImpl  implements ManagerDao{
 
-	//public static final Logger LOG = LogManager.getLogger(ManagerJdbcDaoImpl.class);
+	public static final Logger LOG = LogManager.getLogger(ManagerJdbcDaoImpl.class);
 
 	@Override
 	public ManagerPojo fetchOneManager(String managerContact) throws SystemException {
 		// TODO Auto-generated method stub
-		//LOG.info("Entered FetchOneManager() in DAO");
+		LOG.info("Entered FetchOneManager() in DAO");
 		ManagerPojo managerPojo = null;
 		Connection conn = DBUtil.obtainConnection();
 		try {
@@ -34,7 +34,7 @@ public class ManagerJdbcDaoImpl  implements ManagerDao{
 		} catch (SQLException e) {
 			throw new SystemException();
 		}
-	//	LOG.info("Exited FetchOneManager() in DAO");
+		LOG.info("Exited FetchOneManager() in DAO");
 
 		return managerPojo;
 	}
@@ -42,7 +42,7 @@ public class ManagerJdbcDaoImpl  implements ManagerDao{
 	@Override
 	public ManagerPojo login(String managerContact, String managerPassword) throws SystemException {
 
-	//	LOG.info("Entered login() in DAO");
+		LOG.info("Entered login() in DAO");
 		//		
 		Connection conn = DBUtil.obtainConnection();
 		ManagerPojo managerPojo = null;
@@ -61,14 +61,14 @@ public class ManagerJdbcDaoImpl  implements ManagerDao{
 		}  catch (SQLException e) {
 			throw new SystemException();
 		}
-		//LOG.info("Exited login() in DAO");
+		LOG.info("Exited login() in DAO");
 		return managerPojo;
 
 	}
 
 	@Override
 	public ManagerPojo managerViewinfo(String managerContact) throws SystemException {
-		//LOG.info("Entered managerViewinfo() in DAO");
+		LOG.info("Entered managerViewinfo() in DAO");
 		ManagerPojo managerPojo = null;
 		Connection conn = DBUtil.obtainConnection();
 		try {
@@ -86,7 +86,7 @@ public class ManagerJdbcDaoImpl  implements ManagerDao{
 			throw new SystemException();
 		}
 
-		//LOG.info("Exited managerViewinfo() in DAO");
+		LOG.info("Exited managerViewinfo() in DAO");
 		return managerPojo;
 
 	}
@@ -99,7 +99,7 @@ public class ManagerJdbcDaoImpl  implements ManagerDao{
 
 	@Override
 	public MergedReimbursmentPojo approveOrDeny(MergedReimbursmentPojo resolvedReimbursmentPojo) throws SystemException {
-		//LOG.info("Entered approveRequest() in DAO");
+		LOG.info("Entered approveRequest() in DAO");
 		
 		
 		Connection conn = DBUtil.obtainConnection();
@@ -126,7 +126,7 @@ public class ManagerJdbcDaoImpl  implements ManagerDao{
 			throw new SystemException();
 			
 		}
-		//LOG.info("Exited approveRequest() in DAO");
+		LOG.info("Exited approveRequest() in DAO");
 		return resolvedReimbursmentPojo; 
 		
 	}
@@ -184,7 +184,7 @@ public class ManagerJdbcDaoImpl  implements ManagerDao{
 	
 	@Override
 	public MergedReimbursmentPojo fetchAPendingRequest(int reimbursementId) throws SystemException {
-		//LOG.info("Entered fetchAPendingRequest() in Manager DAO");
+		LOG.info("Entered fetchAPendingRequest() in Manager DAO");
 		MergedReimbursmentPojo pendingReimbursmentPojo = null;
 		Connection conn = DBUtil.obtainConnection();
 		try {
@@ -198,7 +198,7 @@ public class ManagerJdbcDaoImpl  implements ManagerDao{
 		} catch (SQLException e) {
 			throw new SystemException();
 		}
-		//LOG.info("Exited fetchAPendingRequest() in Manager DAO");
+		LOG.info("Exited fetchAPendingRequest() in Manager DAO");
 		return pendingReimbursmentPojo;
 		
 		
@@ -207,7 +207,7 @@ public class ManagerJdbcDaoImpl  implements ManagerDao{
 
 	@Override
 	public List<MergedReimbursmentPojo> fetchAllPendingReq() throws SystemException {
-		//LOG.info("Entered fetchAllPendingReq() in Manager DAO");
+		LOG.info("Entered fetchAllPendingReq() in Manager DAO");
 		List<MergedReimbursmentPojo> allPendingReq = new ArrayList<MergedReimbursmentPojo>();
 		
 		Connection conn = DBUtil.obtainConnection();
@@ -223,13 +223,13 @@ public class ManagerJdbcDaoImpl  implements ManagerDao{
 	   } catch (SQLException e) {
 		throw new SystemException();
 	   }
-		//LOG.info("Exited fetchAllPendingReq() in Manager DAO");
+		LOG.info("Exited fetchAllPendingReq() in Manager DAO");
 		return allPendingReq;
 	}
 
 	@Override
 	public List<MergedReimbursmentPojo> fetchAllResolveReq() throws SystemException {
-		//LOG.info("Entered fetchAllResolveReq() in Manager DAO");
+		LOG.info("Entered fetchAllResolveReq() in Manager DAO");
 		List<MergedReimbursmentPojo> allResolvedReq = new ArrayList<MergedReimbursmentPojo>();
 		Connection conn = DBUtil.obtainConnection();
 		try{
@@ -243,13 +243,13 @@ public class ManagerJdbcDaoImpl  implements ManagerDao{
 		}catch (SQLException e) {
 			throw new SystemException();
 		   }
-		//LOG.info("Exited fetchAllResolveReq() in Manager DAO");
+		LOG.info("Exited fetchAllResolveReq() in Manager DAO");
 		return allResolvedReq;
 	}
 
 	@Override
 	public List<MergedReimbursmentPojo> viewReimbursementReq(int requestingEmployeeId) throws SystemException {
-		//LOG.info("Entered viewReimbursementReq() in Manager DAO");
+		LOG.info("Entered viewReimbursementReq() in Manager DAO");
 		List<MergedReimbursmentPojo> allReimbursementReq = new ArrayList<MergedReimbursmentPojo>();
 		Connection conn = DBUtil.obtainConnection();
 		try {
@@ -270,13 +270,13 @@ public class ManagerJdbcDaoImpl  implements ManagerDao{
 		   } catch (SQLException e) {
 			throw new SystemException();
 		   }
-		//LOG.info("Exited viewReimbursementReq() in Manager DAO");
+		LOG.info("Exited viewReimbursementReq() in Manager DAO");
 		return allReimbursementReq;
 	}
 
 	@Override
 	public List<EmployeePojo> fetchAllEmployee() throws SystemException {
-		//LOG.info("Entered fetchAllEmployee() in Manager DAO");
+		LOG.info("Entered fetchAllEmployee() in Manager DAO");
 		List<EmployeePojo> allEmployees = new ArrayList<EmployeePojo>();
 		Connection conn = DBUtil.obtainConnection();
 		try {
@@ -300,7 +300,7 @@ public class ManagerJdbcDaoImpl  implements ManagerDao{
 		}
 
 
-		//LOG.info("Exited fetchAllEmployee() in Manager DAO");
+		LOG.info("Exited fetchAllEmployee() in Manager DAO");
 		return allEmployees;
 
 	}
