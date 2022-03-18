@@ -42,7 +42,7 @@ static Connection conn;
 		//String connectionUrl = "jdbc:postgresql://10.0.0.88:8888/bms";
 		//String connectionUrl = "jdbc:postgresql://ip-172-31-44-226.us-east-2.compute.internal:8888/bms";
 		//copy from EC2 the private ip "ip-172-31-86-7.ec2.internal" hh line44
-		//String connectionUrl = "jdbc:postgresql://localhost:5432/ers";
+		//String connectionUrl = "jdbc:postgresql://localhost:5432/ers";  //webhook test
 		String connectionUrl = "jdbc:postgresql://ip-172-31-80-189.ec2.internal:8888/ers";
 		
 		String userName = "postgres";
