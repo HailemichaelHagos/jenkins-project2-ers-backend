@@ -45,7 +45,7 @@ static Connection conn;
 		//String connectionUrl = "jdbc:postgresql://localhost:5432/ers";  //webhook test
 		String connectionUrl = "jdbc:postgresql://ip-172-31-80-189.ec2.internal:8888/ers";
 		String userName = "postgres";   
-		//String password = "root";   
+		//String password = "root"; // test webhook  
 		String password = "mysecretpassword";
 	
 	if(conn == null) {
