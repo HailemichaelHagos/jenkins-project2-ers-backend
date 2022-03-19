@@ -3,14 +3,9 @@ package dao;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.SQLException;
-
 import exception.SystemException;
 
-
-
 public class DBUtil {
-
-	
 	
 static Connection conn;
 	
@@ -45,7 +40,7 @@ static Connection conn;
 		//String connectionUrl = "jdbc:postgresql://localhost:5432/ers";  //webhook test
 		String connectionUrl = "jdbc:postgresql://ip-172-31-80-189.ec2.internal:8888/ers";
 		String userName = "postgres";   
-		//String password = "root"; // test webhook  
+		//String password = "root"; // test Webhook  
 		String password = "mysecretpassword";
 	
 	if(conn == null) {
